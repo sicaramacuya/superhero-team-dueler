@@ -1,6 +1,7 @@
 from random import choice
 from ability import Ability
 from armor import Armor
+from weapon import Weapon
 
 class Hero:    
     # We want our hero to have a default "starting_health", so we can set that in the function header.
@@ -98,7 +99,11 @@ class Hero:
             return False
         else:
             return True
+    
+    def add_weapon(self, weapon):
+        """Add weapon to self.abilities"""
 
+        self.abilities.append(weapon)
 
 
 if __name__ == "__main__":
@@ -132,14 +137,19 @@ if __name__ == "__main__":
     # print(f'{wonder_women.name}\'s current attack is: {wonder_women.attack()}')
     # print(f'{super_man.name}\'s defense was: {super_man.defend()}')
 
-    hero1 = Hero("Wonder Woman")
-    hero2 = Hero("Dumbledore")
-    ability1 = Ability("Super Speed", 80)
-    ability2 = Ability("Super Eyes", 20)
-    ability3 = Ability("Wizard Wand", 300)
-    ability4 = Ability("Wizard Beard", 130)
-    hero1.add_ability(ability1)
-    hero1.add_ability(ability2)
-    hero2.add_ability(ability3)
-    hero2.add_ability(ability4)
-    hero1.fight(hero2)
+    # hero1 = Hero("Wonder Woman")
+    # hero2 = Hero("Dumbledore")
+    # ability1 = Ability("Super Speed", 80)
+    # ability2 = Ability("Super Eyes", 20)
+    # ability3 = Ability("Wizard Wand", 300)
+    # ability4 = Ability("Wizard Beard", 130)
+    # hero1.add_ability(ability1)
+    # hero1.add_ability(ability2)
+    # hero2.add_ability(ability3)
+    # hero2.add_ability(ability4)
+    # hero1.fight(hero2)
+
+    hero = Hero("Wonder Woman")
+    weapon = Weapon("Lasso of Truth", 90)
+    hero.add_weapon(weapon)
+    print(hero.attack())
