@@ -127,8 +127,8 @@ class Arena:
             team_two_kills += hero.kills
             team_two_deaths += hero.deaths
         if team_two_deaths == 0:
-            team__two_deaths = 1
-        print(f'{self.team_two.name} average K/D was: {team_two_kills/team__two_deaths}')
+            team_two_deaths = 1
+        print(f'{self.team_two.name} average K/D was: {team_two_kills/team_two_deaths}')
 
 if __name__ == "__main__":
 
