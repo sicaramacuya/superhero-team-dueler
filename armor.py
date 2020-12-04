@@ -10,7 +10,7 @@ class Armor:
     def block(self):
         """Return a value between 0 and the value set by self.max_damage"""
 
-        random_value = randint(0, self.max_block)
+        random_value = randint(0, int(self.max_block))
         return random_value
 
 
