@@ -21,6 +21,10 @@ class Hero:
         self.starting_health = starting_health
         # when a hero is created, their current health is always the same as their starting health (no damage taken yet!)
         self.current_health = starting_health
+        # propertie to the statistics of deaths
+        self.deaths = 0
+        # propertie to the statistics of kills
+        self.kills = 0
 
     def fight(self, opponent):
         '''Current Hero will take turns fighting the opponent hero passed in.'''
@@ -41,10 +45,18 @@ class Hero:
 
             # if self is dead it will enter this if
             if self.is_alive() == False:
+                self.add_death(1)
+                opponent.add_kill(1)
+                print(f'Kills and deaths of {self.name}: {self.kills}, {self.deaths}')
+                print(f'Kills and deaths of {opponent.name}: {opponent.kills}, {opponent.deaths}')
                 print(f'{opponent.name} won the fight!')
 
             # if opponent is dead it enter this elif
             elif opponent.is_alive() == False:
+                self.add_kill(1)
+                opponent.add_death(1)
+                print(f'Kills and deaths of {self.name}: {self.kills}, {self.deaths}')
+                print(f'Kills and deaths of {opponent.name}: {opponent.kills}, {opponent.deaths}')
                 print(f'{self.name} won the fight!')
 
     def add_ability(self, ability):
@@ -105,6 +117,15 @@ class Hero:
 
         self.abilities.append(weapon)
 
+    def add_kill(self, num_kills):
+        """Update self.kills by num_kills amount"""
+        
+        self.kills += num_kills
+
+    def add_death(self, num_deaths):
+        """Update deathds with num_deaths"""
+
+        self.deaths += num_deaths
 
 if __name__ == "__main__":
     # If you run this file from the terminal this block is executed.
